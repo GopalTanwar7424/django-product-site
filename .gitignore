@@ -5,3 +5,10 @@ venv/
 .env 
 staticfiles/ 
 media/ 
+
+# Ignore everything inside media
+media/*
+
+# But not the screenshot folder
+!media/screenshot/
+!media/screenshot/*
