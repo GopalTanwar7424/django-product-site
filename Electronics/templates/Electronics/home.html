@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load widget_tweaks %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color:rgb(217, 225, 234); /* Light beige background */
+        }
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .price {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .form-section {
+            background: linear-gradient(135deg, #f6f8ff, #e3f2fd);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+        .form-control {
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .form-control:focus {
+            box-shadow: 0 0 10px rgba(0,123,255,0.5);
+            border-color: #80bdff;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #333;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            transition: background 0.4s ease;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #388E3C, #66BB6A);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        
+        <h1 class="text-center mb-5">Our Products</h1>
+        
+        <!-- Form Section -->
+        <div class="form-section mb-5">
+            <h3 class="mb-4 text-center">✨ Add a Product ✨</h3>
+            <form method="POST" action="#" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Product Name</label>
+                        {{ fm.name|add_class:"form-control" }}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="image" class="form-label">Product Image</label>
+                        {{ fm.image|add_class:"form-control" }}
+                    </div>
+
+                    <div class="col-12">
+                        <label for="description" class="form-label">Product Description</label>
+                        {{ fm.description|add_class:"form-control" }}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="price" class="form-label">Price (₹)</label>
+                        {{ fm.price|add_class:"form-control" }}
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="stock" class="form-label">Stock Quantity</label>
+                        {{ fm.stock|add_class:"form-control" }}
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="submit-btn">➕ Add Product</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Product List Section -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for pro in prod %}
+            <div class="col">
+                <div class="card product-card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="product-title">{{ pro.name }}</h5>
+                        <p class="card-text">{{ pro.description }}</p>
+                        <p class="price">Price: ₹{{ pro.price }}</p>
+                        <p class="text-muted">In Stock: {{ pro.stock }}</p>
+                        {% if pro.image %}
+                            <img src="{{ pro.image.url }}" alt="{{ pro.name }}" style="width: 200px; height: 200px;">
+                        {% else %}
+                            <p class="text-muted">No image available</p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{% url 'edit_product' pro.id %}" class="btn btn-warning btn-sm m-1">Edit</a>
+                        <a href="{% url 'delete_product' pro.id %}" class="btn btn-danger btn-sm m-1">Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- Django Filter for Adding Class -->
+    {% load widget_tweaks %}
+</body>
+</html>
