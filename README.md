@@ -26,3 +26,7 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/GopalTanwar7424/django-product-site.git
    cd django-product-site
+
+### Preview of the frontend 
+- Products List
+  ![Products Page](https://github.com/GopalTanwar7424/django-product-site/blob/master/media/screenshot/Products.png)
