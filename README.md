@@ -59,5 +59,6 @@ python manage.py runserver
 ## 🧑‍💻 Author
 
 **Gopal Tanwar**
-GitHub: @GopalTanwar7424
+
+GitHub: ![GitHub link](https://github.com/GopalTanwar7424)
 
