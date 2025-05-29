@@ -60,5 +60,5 @@ python manage.py runserver
 
 **Gopal Tanwar**
 
-GitHub: ![GitHub link](https://github.com/GopalTanwar7424)
+[GitHub link](https://github.com/GopalTanwar7424)
 
