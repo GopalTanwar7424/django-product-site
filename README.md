@@ -19,9 +19,9 @@ A Django-based product listing website inspired by Flipkart. It allows users to 
 | Layer      | Technology           |
 |------------|----------------------|
 | Backend    | Django (Python)      |
-| Frontend   | HTML, CSS *(Bootstrap optional)* |
+| Frontend   | HTML, CSS            |
 | Database   | SQLite (default)     |
-| Deployment | GitHub *(Host on Heroku or PythonAnywhere if needed)* |
+| Deployment | GitHub               |
 
 ---
 
@@ -60,5 +60,5 @@ python manage.py runserver
 
 **Gopal Tanwar**
 
-[GitHub link](https://github.com/GopalTanwar7424)
+GitHub Link: [GopalTanwar7424](https://github.com/GopalTanwar7424)
 
