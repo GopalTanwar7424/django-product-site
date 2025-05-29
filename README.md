@@ -27,14 +27,14 @@ Follow these steps to run the project locally:
    git clone https://github.com/GopalTanwar7424/django-product-site.git
    cd django-product-site
 
-## Preview of the frontend 
+## Preview of the Website
 - **Products:**
   
   ![Products Page](https://github.com/GopalTanwar7424/django-product-site/blob/master/media/screenshot/Products.png)
 
 - **Add Products:**
   
-![Add Product](https://github.com/GopalTanwar7424/django-product-site/blob/master/media/screenshot/Add_Product.png)
+  ![Add Product](https://github.com/GopalTanwar7424/django-product-site/blob/master/media/screenshot/Add_Product.png)
 
 - **Edit Products:**
   
